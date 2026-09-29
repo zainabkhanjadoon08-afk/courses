@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ای لرن ہب | E-Learn Hub - Computer Courses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo" onclick="showPage('home')">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">ای لرن ہب</span>
+                    <span class="logo-subtitle">E-Learn Hub</span>
+                </div>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#" class="nav-link active" data-page="home" onclick="showPage('home')">ہوم</a>
+                <a href="#" class="nav-link" data-page="courses" onclick="showPage('courses')">کورسز</a>
+                <a href="#" class="nav-link" data-page="dashboard" onclick="showPage('dashboard')">ڈیش بورڈ</a>
+                <a href="#" class="nav-link" data-page="certificates" onclick="showPage('certificates')">سرٹیفکیٹس</a>
+                <a href="#" class="nav-link" data-page="about" onclick="showPage('about')">تعارف</a>
+            </div>
+            <div class="nav-actions">
+                <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="nav-auth" id="navAuth">
+                    <button class="btn btn-outline" onclick="showPage('login')">لاگ ان</button>
+                    <button class="btn btn-primary" onclick="showPage('register')">رجسٹر کریں</button>
+                </div>
+                <div class="nav-user" id="navUser" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-menu-header">
+                            <span id="menuUserName">User</span>
+                            <span id="menuUserEmail">email</span>
+                        </div>
+                        <a href="#" onclick="showPage('dashboard')"><i class="fas fa-tachometer-alt"></i> ڈیش بورڈ</a>
+                        <a href="#" onclick="showPage('myCourses')"><i class="fas fa-book"></i> میرے کورسز</a>
+                        <a href="#" onclick="showPage('certificates')"><i class="fas fa-certificate"></i> سرٹیفکیٹس</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> لاگ آؤٹ</a>
+                    </div>
+                </div>
+                <button class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+        <!-- HOME PAGE -->
+        <section id="page-home" class="page active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-star"></i> پاکستان کا نمبر 1 لرننگ پلیٹ فارم
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-line">کمپیوٹر سائنس</span>
+                        <span class="title-line gradient-text">سیکھیں بہترین طریقے سے</span>
+                    </h1>
+                    <p class="hero-description">
+                        مفت اور ادائیگی والے کورسز، ویڈیو لیسنز، انٹرایکٹو کوئز، اور سرٹیفکیٹس کے ساتھ اپنی کیریر کو نئی اونچائیوں تک پہنچائیں
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary btn-lg" onclick="showPage('courses')">
+                            <i class="fas fa-play"></i> کورسز دیکھیں
+                        </button>
+                        <button class="btn btn-outline btn-lg" onclick="showPage('register')">
+                            <i class="fas fa-rocket"></i> مفت شروع کریں
+                        </button>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50000">0</span>
+                            <span class="stat-label">شاگرد</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="150">0</span>
+                            <span class="stat-label">کورسز</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50">0</span>
+                            <span class="stat-label">انسٹرکٹرز</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="98">0</span>
+                            <span class="stat-label">% کامیابی</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card hero-card-main">
+                        <div class="code-window">
+                            <div class="code-header">
+                                <span class="code-dot red"></span>
+                                <span class="code-dot yellow"></span>
+                                <span class="code-dot green"></span>
+                                <span class="code-title">index.html</span>
+                            </div>
+                            <div class="code-content">
+                                <span class="code-tag">&lt;div</span> <span class="code-attr">class</span>=<span class="code-string">"future"</span><span class="code-tag">&gt;</span><br>
+                                &nbsp;&nbsp;<span class="code-tag">&lt;h1&gt;</span><span class="code-text">Hello, World!</span><span class="code-tag">&lt;/h1&gt;</span><br>
+                                &nbsp;&nbsp;<span class="code-tag">&lt;p&gt;</span><span class="code-text">Learning is power</span><span class="code-tag">&lt;/p&gt;</span><br>
+                                <span class="code-tag">&lt;/div&gt;</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-card hero-card-float-1">
+                        <i class="fas fa-code"></i>
+                        <span>Web Development</span>
+                    </div>
+                    <div class="hero-card hero-card-float-2">
+                        <i class="fas fa-database"></i>
+                        <span>Database</span>
+                    </div>
+                    <div class="hero-card hero-card-float-3">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Cyber Security</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Section -->
+            <div class="section categories-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-th-large"></i> کورس کی اقسام</h2>
+                    <p>اپنی دلچسپی کے مطابق کورس منتخب کریں</p>
+                </div>
+                <div class="categories-grid">
+                    <div class="category-card" onclick="filterCourses('programming')">
+                        <div class="category-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>پروگرامنگ</h3>
+                        <p>Python, Java, C++, JavaScript</p>
+                        <span class="category-count">45+ کورسز</span>
+                    </div>
+                    <div class="category-card" onclick="filterCourses('web')">
+                        <div class="category-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>ویب ڈویلپمنٹ</h3>
+                        <p>HTML, CSS, React, Node.js</p>
+                        <span class="category-count">38+ کورسز</span>
+                    </div>
+                    <div class="category-card" onclick="filterCourses('data')">
+                        <div class="category-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>ڈیٹا سائنس</h3>
+                        <p>Machine Learning, AI, Analytics</p>
+                        <span class="category-count">32+ کورسز</span>
+                    </div>
+                    <div class="category-card" onclick="filterCourses('security')">
+                        <div class="category-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>سائبر سیکیورٹی</h3>
+                        <p>Ethical Hacking, Network Security</p>
+                        <span class="category-count">25+ کورسز</span>
+                    </div>
+                    <div class="category-card" onclick="filterCourses('mobile')">
+                        <div class="category-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>موبائل ایپ</h3>
+                        <p>Android, iOS, Flutter</p>
+                        <span class="category-count">28+ کورسز</span>
+                    </div>
+                    <div class="category-card" onclick="filterCourses('cloud')">
+                        <div class="category-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>کلاؤڈ کمپیوٹنگ</h3>
+                        <p>AWS, Azure, Google Cloud</p>
+                        <span class="category-count">20+ کورسز</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Courses -->
+            <div class="section featured-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-fire"></i> مقبول کورسز</h2>
+                    <p>سب سے زیادہ بک ہونے والے کورسز</p>
+                </div>
+                <div class="courses-grid" id="featuredCourses">
+                    <!-- Courses will be loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="section why-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-question-circle"></i> ہمیں کیوں منتخب کریں؟</h2>
+                </div>
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>HD ویڈیو لیسنز</h3>
+                        <p>اعلیٰ معیار کی ویڈیو لیسنز جو آپ کو گھر بیٹھے سکھائیں</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <h3>انٹرایکٹو کوئز</h3>
+                        <p>ہر کورس کے ساتھ کوئز اور ٹیسٹس سے اپنی معلومات چیک کریں</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>سرٹیفکیٹس</h3>
+                        <p>کورس مکمل کرنے پر باقاعدہ سرٹیفکیٹ حاصل کریں</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>پیش رفت کی نگرانی</h3>
+                        <p>اپنی پیش رفت کو ڈیش بورڈ پر ٹریک کریں</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>کمیونٹی سپورٹ</h3>
+                        <p>ہزاروں شاگرد کی کمیونٹی سے مدد حاصل کریں</p>
+                    </div>
+                    <div class="why-card">
+                        <div class="why-icon">
+                            <i class="fas fa-infinity"></i>
+                        </div>
+                        <h3>لائفٹائم رسائی</h3>
+                        <p>ایک بار بک کریں، زندگی بھر سیکھیں</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="section testimonials-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-comments"></i> شاگرد کیا کہتے ہیں</h2>
+                </div>
+                <div class="testimonials-slider" id="testimonialsSlider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-right"></i>
+                            <p>ای لرن ہب نے میری زندگی بدل دی۔ میں نے یہاں سے ویب ڈویلپمنٹ سیکھی اور اب ایک بہترین کمپنی میں کام کرتا ہوں۔</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ع</div>
+                            <div class="author-info">
+                                <h4>احمد علی</h4>
+                                <span>ویب ڈویلپر</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-right"></i>
+                            <p>بہترین پلیٹ فارم! کورسز کا معیار بہت اچھا ہے اور کوئز سیکھنے میں بہت مددگار ہیں۔</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">ف</div>
+                            <div class="author-info">
+                                <h4>فاطمہ خان</h4>
+                                <span>ڈیٹا سائنسٹ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <i class="fas fa-quote-right"></i>
+                            <p>مفت کورسز بھی بہت اچھے ہیں۔ میں نے Python سیکھی اور اب فری لانس کام کرتا ہوں۔</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">م</div>
+                            <div class="author-info">
+                                <h4>محمد عمر</h4>
+                                <span>فری لانسر</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="section cta-section">
+                <div class="cta-content">
+                    <h2>آج ہی سیکھنا شروع کریں</h2>
+                    <p>ہزاروں شاگرد پہلے ہی اپنی کیریر بدل چکے ہیں</p>
+                    <button class="btn btn-primary btn-lg" onclick="showPage('register')">
+                        <i class="fas fa-rocket"></i> مفت رجسٹر کریں
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- COURSES PAGE -->
+        <section id="page-courses" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-book"></i> تمام کورسز</h1>
+                <p>اپنی مرضی کا کورس منتخب کریں</p>
+            </div>
+            <div class="courses-filters">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all" onclick="filterCourses('all')">تمام</button>
+                    <button class="filter-tab" data-filter="free" onclick="filterCourses('free')">مفت</button>
+                    <button class="filter-tab" data-filter="paid" onclick="filterCourses('paid')">ادائیگی</button>
+                    <button class="filter-tab" data-filter="beginner" onclick="filterCourses('beginner')">بنیادی</button>
+                    <button class="filter-tab" data-filter="intermediate" onclick="filterCourses('intermediate')">درمیانہ</button>
+                    <button class="filter-tab" data-filter="advanced" onclick="filterCourses('advanced')">ایڈوانسڈ</button>
+                </div>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="courseSearch" placeholder="کورس تلاش کریں..." oninput="searchCourses()">
+                </div>
+            </div>
+            <div class="courses-grid" id="allCourses">
+                <!-- Courses loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- COURSE DETAIL PAGE -->
+        <section id="page-courseDetail" class="page">
+            <div class="course-detail-container" id="courseDetailContent">
+                <!-- Loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- DASHBOARD PAGE -->
+        <section id="page-dashboard" class="page">
+            <div class="dashboard-container">
+                <div class="dashboard-header">
+                    <h1><i class="fas fa-tachometer-alt"></i> ڈیش بورڈ</h1>
+                    <p>خوش آمدید، <span id="dashUserName"></span></p>
+                </div>
+                <div class="dashboard-stats">
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                            <i class="fas fa-book"></i>
+                        </div>
+                        <div class="dash-stat-info">
+                            <span class="dash-stat-number" id="statEnrolled">0</span>
+                            <span class="dash-stat-label">انرول کورسز</span>
+                        </div>
+                    </div>
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="dash-stat-info">
+                            <span class="dash-stat-number" id="statCompleted">0</span>
+                            <span class="dash-stat-label">مکمل کورسز</span>
+                        </div>
+                    </div>
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="dash-stat-info">
+                            <span class="dash-stat-number" id="statCertificates">0</span>
+                            <span class="dash-stat-label">سرٹیفکیٹس</span>
+                        </div>
+                    </div>
+                    <div class="dash-stat-card">
+                        <div class="dash-stat-icon" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="dash-stat-info">
+                            <span class="dash-stat-number" id="statAvgScore">0%</span>
+                            <span class="dash-stat-label">اوسط اسکور</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-content">
+                    <div class="dash-section">
+                        <h3><i class="fas fa-chart-line"></i> پیش رفت</h3>
+                        <div class="progress-chart" id="progressChart">
+                            <!-- Chart loaded dynamically -->
+                        </div>
+                    </div>
+                    <div class="dash-section">
+                        <h3><i class="fas fa-book-reader"></i> جاری کورسز</h3>
+                        <div class="enrolled-courses" id="enrolledCourses">
+                            <!-- Enrolled courses loaded dynamically -->
+                        </div>
+                    </div>
+                    <div class="dash-section">
+                        <h3><i class="fas fa-history"></i> حالیہ سرگرمی</h3>
+                        <div class="recent-activity" id="recentActivity">
+                            <!-- Activity loaded dynamically -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MY COURSES PAGE -->
+        <section id="page-myCourses" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-book-reader"></i> میرے کورسز</h1>
+                <p>آپ کے انرول شدہ کورسز</p>
+            </div>
+            <div class="my-courses-grid" id="myCoursesGrid">
+                <!-- My courses loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- CERTIFICATES PAGE -->
+        <section id="page-certificates" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-certificate"></i> میرے سرٹیفکیٹس</h1>
+                <p>آپ کے حاصل کردہ سرٹیفکیٹس</p>
+            </div>
+            <div class="certificates-grid" id="certificatesGrid">
+                <!-- Certificates loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- QUIZ PAGE -->
+        <section id="page-quiz" class="page">
+            <div class="quiz-container" id="quizContainer">
+                <!-- Quiz loaded dynamically -->
+            </div>
+        </section>
+
+        <!-- LOGIN PAGE -->
+        <section id="page-login" class="page">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <div class="auth-logo">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h2>لاگ ان کریں</h2>
+                        <p>اپنے اکاؤنٹ میں واپس خوش آمدید</p>
+                    </div>
+                    <form onsubmit="login(event)">
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> ای میل</label>
+                            <input type="email" id="loginEmail" required placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> پاس ورڈ</label>
+                            <div class="password-input">
+                                <input type="password" id="loginPassword" required placeholder="••••••••">
+                                <button type="button" class="toggle-password" onclick="togglePassword('loginPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rememberMe">
+                                <span>مجھے یاد رکھیں</span>
+                            </label>
+                            <a href="#" class="forgot-password">پاس ورڈ بھول گئے؟</a>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">
+                            <i class="fas fa-sign-in-alt"></i> لاگ ان
+                        </button>
+                    </form>
+                    <div class="auth-divider">
+                        <span>یا</span>
+                    </div>
+                    <div class="social-login">
+                        <button class="social-btn google" onclick="socialLogin('google')">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button class="social-btn facebook" onclick="socialLogin('facebook')">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                    <div class="auth-footer">
+                        <p>اکاؤنٹ نہیں ہے؟ <a href="#" onclick="showPage('register')">رجسٹر کریں</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REGISTER PAGE -->
+        <section id="page-register" class="page">
+            <div class="auth-container">
+                <div class="auth-card">
+                    <div class="auth-header">
+                        <div class="auth-logo">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h2>رجسٹر کریں</h2>
+                        <p>مفت میں اکاؤنٹ بنائیں اور سیکھنا شروع کریں</p>
+                    </div>
+                    <form onsubmit="register(event)">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> پہلا نام</label>
+                                <input type="text" id="regFirstName" required placeholder="محمد">
+                            </div>
+                            <div class="form-group">
+                                <label><i class="fas fa-user"></i> آخری نام</label>
+                                <input type="text" id="regLastName" required placeholder="احمد">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-envelope"></i> ای میل</label>
+                            <input type="email" id="regEmail" required placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-phone"></i> فون نمبر</label>
+                            <input type="tel" id="regPhone" placeholder="0300-1234567">
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> پاس ورڈ</label>
+                            <div class="password-input">
+                                <input type="password" id="regPassword" required minlength="8" placeholder="کم از کم 8 حروف">
+                                <button type="button" class="toggle-password" onclick="togglePassword('regPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <div class="password-strength" id="passwordStrength">
+                                <div class="strength-bar"></div>
+                                <span class="strength-text">پاس ورڈ کی طاقت</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label><i class="fas fa-lock"></i> پاس ورڈ کی تصدیق</label>
+                            <input type="password" id="regConfirmPassword" required placeholder="دوبارہ پاس ورڈ لکھیں">
+                        </div>
+                        <div class="form-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span>میں <a href="#">شرائط و ضوابط</a> سے اتفاق کرتا ہوں</span>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">
+                            <i class="fas fa-user-plus"></i> رجسٹر کریں
+                        </button>
+                    </form>
+                    <div class="auth-divider">
+                        <span>یا</span>
+                    </div>
+                    <div class="social-login">
+                        <button class="social-btn google" onclick="socialLogin('google')">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button class="social-btn facebook" onclick="socialLogin('facebook')">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                    <div class="auth-footer">
+                        <p>پہلے سے اکاؤنٹ ہے؟ <a href="#" onclick="showPage('login')">لاگ ان کریں</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="page-about" class="page">
+            <div class="page-header">
+                <h1><i class="fas fa-info-circle"></i> ہمارے بارے میں</h1>
+                <p>ای لرن ہب کے بارے میں مزید جانیں</p>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>ہمارا مشن</h3>
+                    <p>ہمارا مشن ہر کسی کے لیے اعلیٰ معیار کی کمپیوٹر تعلیم کو قابل رسائی اور سستی بنانا ہے۔ ہم یقین رکھتے ہیں کہ تعلیم ہر کسی کی پہنچ میں ہونی چاہیے۔</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>ہمارا ویژن</h3>
+                    <p>پاکستان کا سب سے بڑا اور بہترین آن لائن لرننگ پلیٹ فارم بننا جو ہر شاگرد کو بہترین کیریر میں مدد کرے۔</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>ہماری اقدار</h3>
+                    <p>معیار، ایمانداری، جدت، اور شاگرد کی کامیابی ہماری بنیادی اقدار ہیں۔ ہم ہر شاگرد کی کامیابی کو اپنی کامیابی سمجھتے ہیں۔</p>
+                </div>
+            </div>
+            <div class="team-section">
+                <h2><i class="fas fa-users"></i> ہماری ٹیم</h2>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">ع</div>
+                        <h4>احمد خان</h4>
+                        <span>بانی و سی ای او</span>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">س</div>
+                        <h4>سارہ احمد</h4>
+                        <span>تعلیمی ڈائریکٹر</span>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">م</div>
+                        <h4>محمد علی</h4>
+                        <span>ٹیکنیکل ہیڈ</span>
+                    </div>
+                    <div class="team-card">
+                        <div class="team-avatar">ز</div>
+                        <h4>زینب حسین</h4>
+                        <span>ڈیزائن لیڈ</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-overlay" onclick="closePaymentModal()"></div>
+        <div class="modal-content payment-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-credit-card"></i> ادائیگی</h2>
+                <button class="modal-close" onclick="closePaymentModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="payment-body">
+                <div class="payment-summary">
+                    <div class="payment-course" id="paymentCourseInfo">
+                        <!-- Course info -->
+                    </div>
+                </div>
+                <div class="payment-methods">
+                    <h3>ادائیگی کا طریقہ منتخب کریں</h3>
+                    <div class="payment-options">
+                        <div class="payment-option selected" data-method="card" onclick="selectPaymentMethod('card')">
+                            <i class="fas fa-credit-card"></i>
+                            <span>کریڈٹ/ڈیبٹ کارڈ</span>
+                        </div>
+                        <div class="payment-option" data-method="jazzcash" onclick="selectPaymentMethod('jazzcash')">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>جاز کیش</span>
+                        </div>
+                        <div class="payment-option" data-method="easypaisa" onclick="selectPaymentMethod('easypaisa')">
+                            <i class="fas fa-mobile-alt"></i>
+                            <span>ایزی پیسہ</span>
+                        </div>
+                        <div class="payment-option" data-method="bank" onclick="selectPaymentMethod('bank')">
+                            <i class="fas fa-university"></i>
+                            <span>بینک ٹرانسفر</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-form" id="paymentForm">
+                    <!-- Dynamic payment form -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal">
+        <div class="modal-overlay" onclick="closeVideoModal()"></div>
+        <div class="modal-content video-modal">
+            <div class="modal-header">
+                <h2 id="videoTitle">ویڈیو لیسن</h2>
+                <button class="modal-close" onclick="closeVideoModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="video-player">
+                <div class="video-placeholder" id="videoPlaceholder">
+                    <i class="fas fa-play-circle"></i>
+                    <p>ویڈیو چلائیں</p>
+                </div>
+            </div>
+            <div class="video-info">
+                <h3 id="videoLessonTitle">لیسن ٹائٹل</h3>
+                <p id="videoLessonDesc">لیسن کی تفصیل</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <i class="fas fa-check-circle"></i>
+        <span id="toastMessage">پیغام</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <span>ای لرن ہب</span>
+                </div>
+                <p>پاکستان کا نمبر 1 آن لائن لرننگ پلیٹ فارم۔ مفت اور ادائیگی والے کورسز کے ساتھ اپنی کیریر کو نئی اونچائیوں تک پہنچائیں۔</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>فوری لنکس</h4>
+                <ul>
+                    <li><a href="#" onclick="showPage('home')">ہوم</a></li>
+                    <li><a href="#" onclick="showPage('courses')">کورسز</a></li>
+                    <li><a href="#" onclick="showPage('about')">تعارف</a></li>
+                    <li><a href="#" onclick="showPage('contact')">رابطہ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>کورسز</h4>
+                <ul>
+                    <li><a href="#">ویب ڈویلپمنٹ</a></li>
+                    <li><a href="#">پروگرامنگ</a></li>
+                    <li><a href="#">ڈیٹا سائنس</a></li>
+                    <li><a href="#">موبائل ایپ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>رابطہ</h4>
+                <ul class="contact-list">
+                    <li><i class="fas fa-map-marker-alt"></i> اسلام آباد، پاکستان</li>
+                    <li><i class="fas fa-phone"></i> +92 51 1234567</li>
+                    <li><i class="fas fa-envelope"></i> info@elearnhub.pk</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 ای لرن ہب۔ جملہ حقوق محفوظ ہیں۔</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
